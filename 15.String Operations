@@ -1,0 +1,39 @@
+# Initial string
+text = "Python Programming"
+
+# 1. Display "Python"
+print("1. First word:", text[:6])
+
+# 2. Display "Programming"
+print("2. Second word:", text[7:])
+
+# 3. Check for substring "java". If not present, insert it in between.
+if "java" not in text:
+    # Splitting into two parts and inserting "java" in the middle
+    words = text.split(" ")
+    new_text = words[0] + " java " + words[1]
+else:
+    new_text = text
+
+print("3. Modified String:", new_text)
+
+# 4. Find the length of the new string
+print("4. Length of new string:", len(new_text))
+
+# 5. Count the number of words in the string
+word_count = len(new_text.split())
+print("5. Word count:", word_count)
+
+# 6. Capitalize each word in the string
+print("6. Capitalized words:", new_text.title())
+
+# 7. Remove all the spaces and print the string
+no_spaces = new_text.replace(" ", "")
+print("7. String without spaces:", no_spaces)
+
+# 8. Print the frequency of "A", "P", "R", and "M" (Case-sensitive)
+print("\n8. Character Frequencies (Match case):")
+target_chars = ["A", "P", "R", "M"]
+for char in target_chars:
+    freq = new_text.count(char)
+    print(f"   '{char}' : {freq}")
