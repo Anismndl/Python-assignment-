@@ -11,19 +11,36 @@ print("Winter Fruits:", winter_fruits)
 
 # 2. Print fruits present in BOTH fruits and winter_fruits (Intersection)
 both_fruits_and_winter = fruits.intersection(winter_fruits)
-print("\nFruits present in both 'fruits' and 'winter_fruits':", both_fruits_and_winter)
+print("\nFruits in both 'fruits' and 'winter_fruits':", both_fruits_and_winter)
 
 # 3. Print fruits present ONLY in summer_fruits but NOT in fruits (Difference)
 only_summer_not_fruits = summer_fruits.difference(fruits)
-print("\nFruits present only in 'summer_fruits' but not in 'fruits':", only_summer_not_fruits)
+print("\nFruits only in 'summer_fruits' but not in 'fruits':", only_summer_not_fruits)
 
-# 4. Print fruits present in (summer_fruits AND winter_fruits) combined, but NOT in fruits
+# 4. Print fruits present in summer_fruits and winter_fruits combined, but NOT in fruits
 combined_seasonal = summer_fruits.union(winter_fruits)
 seasonal_not_fruits = combined_seasonal.difference(fruits)
-print("\nFruits in summer_fruits and winter_fruits but not in 'fruits':", seasonal_not_fruits)
+print("\nFruits in seasonal sets but not in 'fruits':", seasonal_not_fruits)
 
-# 5. Check whether "Orange" is present in fruits or not
+# 5. Find whether "Orange" is present in fruits or not
 if "Orange" in fruits:
-    print("\n'Orange' is present in the fruits set.")
+    print("\n'Orange' is present in fruits.")
 else:
-    print("\n'Orange' is NOT present in the fruits set.")
+    print("\n'Orange' is NOT present in fruits.")
+
+# 6. Find in which set(s) "Pineapple" is present
+print("\nChecking presence of 'Pineapple':")
+found = False
+
+if "Pineapple" in fruits:
+    print("- Present in 'fruits'")
+    found = True
+if "Pineapple" in summer_fruits:
+    print("- Present in 'summer_fruits'")
+    found = True
+if "Pineapple" in winter_fruits:
+    print("- Present in 'winter_fruits'")
+    found = True
+
+if not found:
+    print("- 'Pineapple' is not present in any set.")
