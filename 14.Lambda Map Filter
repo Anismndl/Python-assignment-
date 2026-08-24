@@ -1,0 +1,27 @@
+# 1. Lambda Function (calculates square of a number)
+square = lambda x: x * x
+
+print("--- 1. Lambda Function ---")
+num = 5
+print("Square of", num, "using lambda:", square(num))
+
+
+# Sample list of numbers for map and filter operations
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print("\nOriginal List:", numbers)
+
+
+# 2. Filter Function (filters out even numbers from the list)
+# Syntax: filter(function, iterable)
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+
+print("\n--- 2. Filter Function ---")
+print("Filtered Even Numbers:", even_numbers)
+
+
+# 3. Map Function (multiplies each number in the list by 10)
+# Syntax: map(function, iterable)
+scaled_numbers = list(map(lambda x: x * 10, numbers))
+
+print("\n--- 3. Map Function ---")
+print("Mapped Numbers (Multiplied by 10):", scaled_numbers)
