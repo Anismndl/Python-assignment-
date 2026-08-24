@@ -1,0 +1,27 @@
+# Defining the Student class
+class Student:
+    # Constructor to initialize attributes
+    def __init__(self, name, dept, roll):
+        self.name = name
+        self.dept = dept
+        self.roll = roll
+
+    # Method to display student record
+    def show(self):
+        print("Name:", self.name, "| Department:", self.dept, "| Roll No:", self.roll)
+
+
+# Creating 5 student objects
+student1 = Student("Alex", "CSE", 101)
+student2 = Student("Sarah", "ECE", 102)
+student3 = Student("Michael", "EEE", 103)
+student4 = Student("Emily", "ME", 104)
+student5 = Student("David", "Civil", 105)
+
+# Storing objects in a list for easy iteration
+student_list = [student1, student2, student3, student4, student5]
+
+# Displaying records of all 5 students
+print("--- Student Records ---")
+for student in student_list:
+    student.show()
