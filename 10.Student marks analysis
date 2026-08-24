@@ -1,0 +1,30 @@
+# List of 20 student marks
+marks = [75, 82, 90, 68, 82, 95, 75, 82, 88, 60, 90, 75, 82, 70, 85, 90, 78, 82, 65, 92]
+
+# 1. Calculate Average Marks
+total_sum = 0
+for m in marks:
+    total_sum += m
+
+average = total_sum / len(marks)
+print("Average Marks:", average)
+
+# 2. Count Students Scoring Above Average
+above_avg_count = 0
+for m in marks:
+    if m > average:
+        above_avg_count += 1
+
+print("Number of students scoring more than average:", above_avg_count)
+
+# 3. Find Most Frequent (Mode/Maximum Scored) Mark
+max_count = 0
+most_frequent_mark = marks[0]
+
+for m in marks:
+    count = marks.count(m)
+    if count > max_count:
+        max_count = count
+        most_frequent_mark = m
+
+print("Most scored mark in the list:", most_frequent_mark, "(scored by", max_count, "students)")
