@@ -1,0 +1,41 @@
+# Creating nested dictionary with 5 employee records
+employee = {
+    "E1": {"emp_name": "Alice", "designation": "Manager", "dept": "HR", "salary": 65000},
+    "E2": {"emp_name": "Bob", "designation": "Developer", "dept": "IT", "salary": 75000},
+    "E3": {"emp_name": "Charlie", "designation": "Analyst", "dept": "Finance", "salary": 55000},
+    "E4": {"emp_name": "David", "designation": "Designer", "dept": "Marketing", "salary": 58000},
+    "E5": {"emp_name": "Eve", "designation": "Team Lead", "dept": "IT", "salary": 82000}
+}
+
+# 1. Print the record of the employee with emp_id "E1"
+print("--- Record of E1 ---")
+print(employee["E1"])
+
+# 2. Print the department of employee "E4"
+print("\n--- Department of E4 ---")
+print("Department:", employee["E4"]["dept"])
+
+# 3. Print the record of employee having maximum salary
+max_salary = 0
+max_emp_id = ""
+
+for emp_id, info in employee.items():
+    if info["salary"] > max_salary:
+        max_salary = info["salary"]
+        max_emp_id = emp_id
+
+print("\n--- Employee with Maximum Salary ---")
+print("ID:", max_emp_id)
+print("Record:", employee[max_emp_id])
+
+# 4. Insert a new employee record in the existing dictionary
+employee["E6"] = {
+    "emp_name": "Frank", 
+    "designation": "Tester", 
+    "dept": "QA", 
+    "salary": 50000
+}
+
+print("\n--- Updated Employee Dictionary ---")
+for emp_id, info in employee.items():
+    print(emp_id, ":", info)
