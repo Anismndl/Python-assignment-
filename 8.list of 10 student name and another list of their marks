@@ -1,0 +1,17 @@
+# List of 10 student names
+students = [
+    "Alex", "Jordan", "Taylor", "Morgan", "Sam", 
+    "Chris", "Pat", "Riley", "Jamie", "Casey"
+]
+
+# List of their corresponding marks out of 100
+marks = [85, 92, 78, 90, 64, 88, 73, 95, 81, 69]
+
+# Displaying the lists separately
+print("Student Names:", students)
+print("Student Marks:", marks)
+
+print("\n--- Student Marksheet ---")
+# Loop to display each student with their mark
+for i in range(len(students)):
+    print(students[i], ":", marks[i])
