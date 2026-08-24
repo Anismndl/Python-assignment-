@@ -1,0 +1,21 @@
+# Function to check if a number is prime
+def isPrime(num):
+    # Numbers less than or equal to 1 are not prime
+    if num <= 1:
+        return False
+    
+    # Check for factors from 2 up to num - 1
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+            
+    return True
+
+# Taking input from the user
+number = int(input("Enter a number: "))
+
+# Calling the function and displaying the result
+if isPrime(number):
+    print(number, "is a Prime number.")
+else:
+    print(number, "is not a Prime number.")
