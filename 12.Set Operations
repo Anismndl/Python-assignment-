@@ -1,0 +1,29 @@
+# Creating the three sets
+fruits = {"Apple", "Banana", "Orange", "Mango", "Grape", "Pineapple", "Papaya", "Watermelon", "Guava", "Peach"}
+summer_fruits = {"Mango", "Watermelon", "Lychee", "Muskmelon", "Peach"}
+winter_fruits = {"Orange", "Guava", "Grape", "Kiwi", "Pomegranate"}
+
+# 1. Print the name of all fruits in 3 sets
+print("--- All Fruits in 3 Sets ---")
+print("Fruits:", fruits)
+print("Summer Fruits:", summer_fruits)
+print("Winter Fruits:", winter_fruits)
+
+# 2. Print fruits present in BOTH fruits and winter_fruits (Intersection)
+both_fruits_and_winter = fruits.intersection(winter_fruits)
+print("\nFruits present in both 'fruits' and 'winter_fruits':", both_fruits_and_winter)
+
+# 3. Print fruits present ONLY in summer_fruits but NOT in fruits (Difference)
+only_summer_not_fruits = summer_fruits.difference(fruits)
+print("\nFruits present only in 'summer_fruits' but not in 'fruits':", only_summer_not_fruits)
+
+# 4. Print fruits present in (summer_fruits AND winter_fruits) combined, but NOT in fruits
+combined_seasonal = summer_fruits.union(winter_fruits)
+seasonal_not_fruits = combined_seasonal.difference(fruits)
+print("\nFruits in summer_fruits and winter_fruits but not in 'fruits':", seasonal_not_fruits)
+
+# 5. Check whether "Orange" is present in fruits or not
+if "Orange" in fruits:
+    print("\n'Orange' is present in the fruits set.")
+else:
+    print("\n'Orange' is NOT present in the fruits set.")
