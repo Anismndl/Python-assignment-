@@ -1,0 +1,63 @@
+import math
+
+# Base Parent Class: Triangle
+class Triangle:
+    def __init__(self, side1, side2, side3, angle1=0, angle2=0, angle3=0):
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+        self.angle1 = angle1
+        self.angle2 = angle2
+        self.angle3 = angle3
+
+
+# Child Class 1: EquilateralTriangle
+class EquilateralTriangle(Triangle):
+    def __init__(self, side):
+        # All 3 sides are equal, and all 3 internal angles are 60 degrees
+        super().__init__(side, side, side, 60, 60, 60)
+
+    # Calculate area of equilateral triangle: (sqrt(3)/4) * side^2
+    def calArea(self):
+        area = (math.sqrt(3) / 4) * (self.side1 ** 2)
+        return round(area)  # Round to whole number
+
+    # Calculate tangent of all angles (converting degrees to radians first)
+    def findAngles(self):
+        tan_angle1 = math.tan(math.radians(self.angle1))
+        tan_angle2 = math.tan(math.radians(self.angle2))
+        tan_angle3 = math.tan(math.radians(self.angle3))
+        
+        print(f"tan({self.angle1}°): {tan_angle1:.4f}")
+        print(f"tan({self.angle2}°): {tan_angle2:.4f}")
+        print(f"tan({self.angle3}°): {tan_angle3:.4f}")
+
+
+# Child Class 2: Scalene
+class Scalene(Triangle):
+    def __init__(self, side1, side2, side3):
+        super().__init__(side1, side2, side3)
+
+    # Calculate perimeter
+    def calPerimeter(self):
+        return self.side1 + self.side2 + self.side3
+
+    # Calculate area using Heron's Formula
+    def calArea(self):
+        s = self.calPerimeter() / 2  # Semi-perimeter
+        area = math.sqrt(s * (s - self.side1) * (s - self.side2) * (s - self.side3))
+        return round(area)  # Round to whole number
+
+
+# --- Execution and Testing ---
+
+print("=== Equilateral Triangle ===")
+eq_tri = EquilateralTriangle(side=10)
+print("Area (whole number):", eq_tri.calArea())
+print("Tangent of internal angles:")
+eq_tri.findAngles()
+
+print("\n=== Scalene Triangle ===")
+scalene_tri = Scalene(side1=7, side2=8, side3=9)
+print("Perimeter:", scalene_tri.calPerimeter())
+print("Area (whole number):", scalene_tri.calArea())
