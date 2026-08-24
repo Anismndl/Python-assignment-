@@ -1,0 +1,21 @@
+# Taking two numbers from the user
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+# Basic operations
+add = num1 + num2
+sub = num1 - num2
+mult = num1 * num2
+
+# Displaying results
+print("\n--- Results ---")
+print("Addition:", add)
+print("Subtraction:", sub)
+print("Multiplication:", mult)
+
+# Checking division by zero
+if num2 != 0:
+    div = num1 / num2
+    print("Division:", div)
+else:
+    print("Division by zero is not allowed.")
