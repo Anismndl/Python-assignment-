@@ -1,0 +1,62 @@
+# Base / Parent Class
+class Transport:
+    def __init__(self, type):
+        self.type = type
+
+    def show(self):
+        print("Transport Type:", self.type)
+
+
+# Child Class 1: Boat
+class Boat(Transport):
+    def __init__(self, type, capacity, source, destination):
+        # Initialize parent class constructor
+        super().__init__(type)
+        self.capacity = capacity
+        self.source = source
+        self.destination = destination
+
+    # Overridden show method to display Boat details along with type
+    def show(self):
+        super().show()
+        print("Capacity:", self.capacity, "passengers")
+        print("Source:", self.source)
+        print("Destination:", self.destination)
+        print("-" * 30)
+
+
+# Child Class 2: Bus
+class Bus(Transport):
+    def __init__(self, type, seat_no, source, destination):
+        # Initialize parent class constructor
+        super().__init__(type)
+        self.seat_no = seat_no
+        self.source = source
+        self.destination = destination
+
+    # Overridden show method to display Bus details
+    def show(self):
+        super().show()
+        print("Seat Number:", self.seat_no)
+        print("Source:", self.source)
+        print("Destination:", self.destination)
+        print("-" * 30)
+
+
+# Creating 2 Boat objects
+boat1 = Boat("Water Transport", 50, "Port A", "Island B")
+boat2 = Boat("Water Transport", 120, "Harbor C", "Port D")
+
+# Creating 2 Bus objects
+bus1 = Bus("Road Transport", "A-12", "City X", "City Y")
+bus2 = Bus("Road Transport", "B-05", "Station M", "Station N")
+
+# Displaying records of Boat objects
+print("--- BOAT RECORDS ---")
+boat1.show()
+boat2.show()
+
+# Displaying records of Bus objects
+print("\n--- BUS RECORDS ---")
+bus1.show()
+bus2.show()
