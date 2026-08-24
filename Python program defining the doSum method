@@ -1,0 +1,19 @@
+# Function to calculate the sum of digits
+def doSum(num):
+    # Handle negative numbers by making them positive
+    num = abs(num)
+    
+    total = 0
+    while num > 0:
+        digit = num % 10    # Get the last digit
+        total += digit       # Add digit to total
+        num = num // 10      # Remove the last digit
+        
+    return total
+
+# Taking input from the user
+number = int(input("Enter a number: "))
+
+# Calling the function and displaying the result
+result = doSum(number)
+print("The sum of the digits is:", result)
