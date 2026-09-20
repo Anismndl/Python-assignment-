@@ -1,0 +1,116 @@
+import os
+
+# 1. Doctor Information stored using Tuple
+# Format: (Doctor ID, Name, Specialization)
+DOCTORS = (
+    (101, "Dr. A. Roy", "Cardiologist"),
+    (102, "Dr. S. Sen", "Dermatologist"),
+    (103, "Dr. P. Das", "General Physician")
+)
+
+# 2. Patient Registration stored using Dictionary
+# Key: Patient ID, Value: Patient Details
+patients_db = {}
+
+# 3. Appointment Scheduling stored using List
+appointments_list = []
+
+
+# 4. Billing System using Class and Object
+class BillingSystem:
+    def __init__(self, patient_id, consultation_fee, medicine_charge):
+        self.patient_id = patient_id
+        self.consultation_fee = consultation_fee
+        self.medicine_charge = medicine_charge
+
+    def calculate_total_bill(self):
+        return self.consultation_fee + self.medicine_charge
+
+    def generate_receipt(self):
+        total = self.calculate_total_bill()
+        print("\n--- INVOICE ---")
+        print(f"Patient ID        : {self.patient_id}")
+        print(f"Consultation Fee  : ₹{self.consultation_fee}")
+        print(f"Medicine Charges  : ₹{self.medicine_charge}")
+        print(f"Total Amount Due  : ₹{total}")
+        print("----------------\n")
+
+
+# Function to register a patient
+def register_patient(p_id, name, age, gender):
+    patients_db[p_id] = {
+        "Name": name,
+        "Age": age,
+        "Gender": gender
+    }
+    print(f"Patient '{name}' registered successfully!")
+
+
+# Function to schedule an appointment
+def schedule_appointment(p_id, doctor_id, date):
+    appointment = {
+        "Patient ID": p_id,
+        "Doctor ID": doctor_id,
+        "Date": date
+    }
+    appointments_list.append(appointment)
+    print(f"Appointment scheduled for Patient ID {p_id} with Doctor ID {doctor_id} on {date}.")
+
+
+# 5. Medical Records Storage using File Handling
+def save_medical_record(p_id, diagnosis, prescription):
+    filename = "medical_records.txt"
+    with open(filename, "a") as file:
+        file.write(f"Patient ID: {p_id} | Diagnosis: {diagnosis} | Prescription: {prescription}\n")
+    print("Medical record saved to file successfully!")
+
+
+# 6. Report Generation
+def generate_report():
+    print("\n================ HOSPITAL REPORT ================")
+    
+    # Display Doctors
+    print("\n--- Available Doctors ---")
+    for doc in DOCTORS:
+        print(f"ID: {doc[0]} | Name: {doc[1]} | Dept: {doc[2]}")
+        
+    # Display Registered Patients
+    print("\n--- Registered Patients ---")
+    for p_id, info in patients_db.items():
+        print(f"ID: {p_id} | Name: {info['Name']} | Age: {info['Age']} | Gender: {info['Gender']}")
+
+    # Display Scheduled Appointments
+    print("\n--- Scheduled Appointments ---")
+    for app in appointments_list:
+        print(f"Patient ID: {app['Patient ID']} -> Doctor ID: {app['Doctor ID']} (Date: {app['Date']})")
+
+    # Read and Display Medical Records from File
+    print("\n--- Stored Medical Records ---")
+    if os.path.exists("medical_records.txt"):
+        with open("medical_records.txt", "r") as file:
+            print(file.read())
+    else:
+        print("No medical records found.")
+    print("=================================================\n")
+
+
+# Main Execution Pipeline
+if __name__ == "__main__":
+    # Registering Patients
+    register_patient(1, "Rahul Sharma", 30, "Male")
+    register_patient(2, "Priya Banerjee", 25, "Female")
+
+    # Scheduling Appointments
+    schedule_appointment(1, 101, "2026-09-25")
+    schedule_appointment(2, 103, "2026-09-26")
+
+    # Saving Medical Records (File Handling)
+    save_medical_record(1, "Hypertension", "Amlodipine 5mg")
+    save_medical_record(2, "Seasonal Flu", "Paracetamol 650mg")
+
+    # Billing System Demonstration
+    patient1_bill = BillingSystem(patient_id=1, consultation_fee=500, medicine_charge=350)
+    patient1_bill.generate_receipt()
+
+    # Generating Final Summary Report
+    generate_report()
